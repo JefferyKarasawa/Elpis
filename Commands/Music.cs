@@ -21,6 +21,8 @@ namespace Template.Commands
             _lavaNode = lavaNode;
         }
         [Command("Play", RunMode = RunMode.Async)]
+        [Summary("Play the requested song. \n Usage: <prefix>play <song url> Example: !play https://www.youtube.com/<song>")]
+
         public async Task PlayAsync([Remainder] string searchQuery)
         {
             if (string.IsNullOrWhiteSpace(searchQuery))
@@ -99,7 +101,11 @@ namespace Template.Commands
             }
         }
 
+        // Let's make a command that make's the bot join a voice channel. You must be in a voice channel for the sakes of making it easier for the bot to join a voice channel.
+
         [Command("Join", RunMode = RunMode.Async)]
+        [Summary("Join the voice channel you are currently in. \n Usage: <prefix>join Example: !join")]
+
         public async Task JoinAsync()
         {
             if (_lavaNode.HasPlayer(Context.Guild))
@@ -168,8 +174,12 @@ namespace Template.Commands
 
             await ReplyAsync($"```{stringBuilder}```");
         }
+        
+        // Let's make a command to skip to the next song.
 
         [Command("Skip", RunMode = RunMode.Async)]
+        [Summary("Skip to the next song in the playlist or queue. \n Usage: <prefix>skip Example: !skip")]
+
         public async Task Skip()
         {
             var voiceState = Context.User as IVoiceState;
@@ -204,7 +214,11 @@ namespace Template.Commands
 
         }
 
+        // Let's make a command to pause the current song
+
         [Command("Pause", RunMode = RunMode.Async)]
+        [Summary("Pause the song that is currently playing. \n Usage: <prefix>pause Example: !pause")]
+
         public async Task Pause()
         {
             var voiceState = Context.User as IVoiceState;
@@ -238,7 +252,11 @@ namespace Template.Commands
 
         }
 
+        // Let's make a command to resume the paused song
+
         [Command("Resume", RunMode = RunMode.Async)]
+        [Summary("Resumes the paused song. \n Usage: <prefix>resume Example: !resume")]
+
         public async Task Resume()
         {
             var voiceState = Context.User as IVoiceState;
@@ -271,7 +289,11 @@ namespace Template.Commands
 
         }
 
+        // Let's make a command to stop the song currently playing on the bot.
+
         [Command("Stop")]
+        [Summary("Stops the song currently playing. \n Usage: <prefix>stop Example: !stop")]
+
         public async Task Stop()
         {
             var voiceState = Context.User as IVoiceState;
@@ -310,7 +332,11 @@ namespace Template.Commands
 
         }
 
+        // Let's make a command to make the bot leave the voice channel
+
         [Command("Leave")]
+        [Summary("Make the bot leave the voice channel. \n Usage: <prefix>leave Example: !leave")]
+
         public async Task LeaveAsync()
         {
             
