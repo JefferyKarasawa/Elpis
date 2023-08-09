@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using Discord;
+﻿using Discord;
 using Discord.Addons.Hosting;
 using Discord.Addons.Interactive;
 using Discord.Commands;
@@ -11,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System.IO;
+using System.Threading.Tasks;
 using Template.Services;
 using Template.Utilities;
 using Victoria;
@@ -61,7 +60,8 @@ namespace Template
                     .AddHostedService<CommandHandler>()
                     .AddDbContext<TemplateContext>()
                     .AddSingleton<Servers>()
-                    .AddLavaNode(x => {
+                    .AddLavaNode(x =>
+                    {
                         x.SelfDeaf = false;
                     })
                     .AddSingleton<InteractiveService>()

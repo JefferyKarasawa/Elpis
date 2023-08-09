@@ -16,18 +16,18 @@ namespace Template.Commands
 
         // Using reddit API to grab reddit memes
 
-            public async Task Meme(string subreddit = null)
+        public async Task Meme(string subreddit = null)
         {
             var client = new HttpClient();
             var result = await client.GetStringAsync($"https://reddit.com/r/{subreddit ?? "memes"}/random.json?limit=1");
-            if(!result.StartsWith("["))
+            if (!result.StartsWith("["))
             {
                 await Context.Channel.SendMessageAsync("The requested subreddit does not exist! Please choose another one");
                 return;
             }
             JArray arr = JArray.Parse(result);
             JObject post = JObject.Parse(arr[0]["data"]["children"][0]["data"].ToString());
-            
+
             //Let's show this information from reddit onto an embed
 
             var builder = new EmbedBuilder()
@@ -43,7 +43,7 @@ namespace Template.Commands
 
         [Command("eightball")]
         [Summary("Ask the eightball a question and it will give you a random answer. Usage: <prefix>eightball <question>")]
-        
+
         // Let's code in a magic eightball command where you ask a question and it replies with a preterminded string of responses
         public async Task Eightball([Remainder] string question = null)
         {
@@ -52,9 +52,9 @@ namespace Template.Commands
             await ReplyAsync(responses[new Random().Next(0, responses.Count())]);
         }
 
-        
-        [Command("420")] 
-        
+
+        [Command("420")]
+
         // Let's put in a stoner 420 command :P
         public async Task WeedMinute()
         {

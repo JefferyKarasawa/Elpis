@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Discord;
+﻿using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using Infrastructure;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Template.Common;
 using Template.Services;
 using Template.Utilities;
@@ -29,7 +25,7 @@ namespace Template.Modules
         }
 
 
-        
+
         [Command("purge")]
 
         [RequireUserPermission(GuildPermission.ManageMessages)]

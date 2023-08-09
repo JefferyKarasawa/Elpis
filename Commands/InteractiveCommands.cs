@@ -1,9 +1,9 @@
-﻿using Discord.Commands;
+﻿using Discord;
 using Discord.Addons.Interactive;
+using Discord.Commands;
 using System;
-using System.Threading.Tasks;
 using System.Collections.Generic;
-using Discord;
+using System.Threading.Tasks;
 
 namespace Template.Commands
 {
@@ -11,7 +11,7 @@ namespace Template.Commands
 
     {
         private readonly CommandService _service;
-        
+
         public InteractiveCommands(CommandService service)
         {
             _service = service;
@@ -72,7 +72,7 @@ namespace Template.Commands
         {
             List<string> Pages = new List<string>();
 
-            foreach(var module in _service.Modules)
+            foreach (var module in _service.Modules)
             {
                 string page = $"**{module.Name}**\n\n";
                 foreach (var command in module.Commands)
@@ -88,5 +88,5 @@ namespace Template.Commands
 
     }
 
-    
+
 }

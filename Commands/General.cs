@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Discord;
+﻿using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Logging;
+using System.Data;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using Template.Common;
 using Template.Utilities;
 
@@ -37,7 +34,7 @@ namespace Template.Commands
         public async Task Ping()
         {
             await Context.Channel.SendMessageAsync("Pong! Your latency is: " + _client.Latency + "ms");
-            
+
         }
         [Command("echo")]
         public async Task EchoAsync([Remainder] string text)

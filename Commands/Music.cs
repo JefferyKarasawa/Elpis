@@ -174,7 +174,7 @@ namespace Template.Commands
 
             await ReplyAsync($"```{stringBuilder}```");
         }
-        
+
         // Let's make a command to skip to the next song.
 
         [Command("Skip", RunMode = RunMode.Async)]
@@ -339,7 +339,7 @@ namespace Template.Commands
 
         public async Task LeaveAsync()
         {
-            
+
             var voiceState = Context.User as IVoiceState;
             if (voiceState?.VoiceChannel == null)
             {
@@ -364,12 +364,12 @@ namespace Template.Commands
             {
                 await ReplyAsync("Music stop check, making bot leave!");
             }
-            
+
             // Make bot leave voice channel and announce
-            
+
             await _lavaNode.LeaveAsync(voiceState.VoiceChannel);
             await ReplyAsync($"Leaving {voiceState.VoiceChannel.Name}!");
-            
+
 
         }
 
